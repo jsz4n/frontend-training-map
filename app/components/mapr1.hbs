@@ -1,0 +1,19 @@
+<table>
+<tr>
+<td>
+<SearchInput @updateMap={{this.updateCities}} {{on 'change' this.initMap }}/>
+</td>
+
+<td>
+
+<div id="map" style="width:700px;height:400px"  {{on 'click' this.initMap }} /> 
+<input type="hidden"  value={{this.cities}} {{on 'change' this.initMap }}/>
+
+</td>
+<td>
+<h2>Contactpoints:</h2>
+</td>
+</tr>
+</table>
+
+{{yield}}
