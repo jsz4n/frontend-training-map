@@ -1,0 +1,9 @@
+<h2> contact list</h2>
+<ul>
+{{!-- TODO: a component --}}
+{{#each this.contactpoints as | contactpoint| }}
+<Contactcard @contact={{contactpoint}}/>
+{{/each}}
+</ul>
+
+{{yield}}
