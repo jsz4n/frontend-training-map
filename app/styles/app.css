@@ -1,4 +1,13 @@
 
+#map {
+    width:700px;
+    height:400px;
+}
+
+td {
+    padding:  1em;
+}
+
 .ol-attribution {
     visibility: hidden
 }

@@ -22,7 +22,7 @@ export default class SearchInputComponent extends Component {
                 }).then(result =>{
                         this.results=result;
                         this.cities = Array.from(new Set(result.map(x=>x.city)));
-                        this.args.updateMap(this.cities);
+                        this.args.updateMap(result);
                     }
                     );
         }
