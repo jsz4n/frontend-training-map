@@ -18,13 +18,20 @@ export default class SearchInputComponent extends Component {
             this.store.query('address',
                 {
                     filter: { city: value },
+                    sort: "city",
+                    include: "citydetails",
+                    page: {size:20}
+                    //include: "cities"
 
-                }).then(result =>{
-                        this.results=result;
-                        this.cities = Array.from(new Set(result.map(x=>x.city)));
-                        this.args.updateMap(result);
-                    }
-                    );
+                }).then(results =>{
+                        if(act.srcElement.value == results.query.filter.city){
+                            this.results = results;
+                            this.cities = Array.from(new Set(results.map(x=>x.city)));
+                            Promise.all(results
+                                .map(x=>x.citydetails))
+                                .then(this.args.updateMap)
+                        }
+                    });
         }
     }
 
