@@ -1,0 +1,24 @@
+
+<div id="search-bar" {{on 'input' this.doSearch }}>
+<Input/> 
+{{#each this.displayedResult as |c| }}
+    <a text={{c}} {{on 'click' this.selectAddr}} class="result" /><br/>
+{{/each}}
+</div>
+
+<div id="map-ui">
+<div id="map" class="map" {{did-insert this.LoadMap}}>
+    {{!--<div id="popup" class="ol-popup">
+        <a href="#" id="popup-closer" class="ol-popup-closer" {{on 'click' this.closeDetails }}></a>
+        <div id="popup-content">{{this.selectCity}}</div>
+    </div>--}}
+</div>
+</div>
+
+<div id="city-popup">
+    <h3>Your contactpoints in {{this.selectedCity}}</h3>
+</div>
+<div id="contact-list" >
+<ContactList @contactpoints={{this.contactpoints}}/>
+</div>
+{{yield}}

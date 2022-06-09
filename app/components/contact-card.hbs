@@ -1,0 +1,14 @@
+<div class="contactcard">
+{{#if @contact.hasMail }}
+    {{#if @contact.isPerson }}
+        <a href="mailto:{{@contact.mail}}" text="📧 {{@contact.firstname}}, {{@contact.lastname}}" /><br/> 
+    {{else}}
+        <a href="mailto:{{@contact.mail}}" text="📧 {{@contact.email}}" /><br/> 
+    {{/if}}
+{{/if}}
+{{#if @contact.hasPhone }}
+        ☎ {{@contact.telephone}}<br/>
+{{/if}}
+        🧭 {{@contact.address.addr}}<br/>
+</div>
+{{yield}}
